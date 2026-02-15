@@ -1,0 +1,13 @@
+{
+  "name": "@best-mono/config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./eslint": "./eslint/index.mjs",
+    "./prettier": "./prettier/index.cjs",
+    "./tsconfig/base": "./tsconfig/base.json",
+    "./tsconfig/nest": "./tsconfig/nest.json",
+    "./tsconfig/next": "./tsconfig/next.json"
+  }
+}

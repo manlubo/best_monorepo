@@ -1,0 +1,33 @@
+# node
+node_modules
+**/node_modules
+.pnpm-store
+
+# turbo
+.turbo
+
+# build output
+dist
+**/dist
+.next
+out
+coverage
+*.tsbuildinfo
+
+# git
+.git
+.gitignore
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# env
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode
+.idea

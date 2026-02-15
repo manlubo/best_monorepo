@@ -1,17 +1,47 @@
 {
+  "$schema": "https://turbo.build/schema.json",
+
+  "globalDependencies": [
+    "packages/config/tsconfig/*.json",
+    "packages/config/eslint/index.mjs",
+    "packages/config/prettier/index.cjs",
+    ".editorconfig"
+  ],
+
   "tasks": {
     "dev": {
-      "cache": false
+      "cache": false,
+      "persistent": true
     },
+
     "build": {
       "dependsOn": ["^build"],
+      "inputs": [
+        "src/**",
+        "tsconfig.json",
+        "tsconfig.build.json",
+        "package.json",
+        "next.config.ts",
+        "nest-cli.json"
+      ],
       "outputs": ["dist/**", ".next/**"]
     },
+
     "lint": {
+      "inputs": ["src/**", "eslint.config.mjs", "package.json"],
       "outputs": []
     },
+
     "typecheck": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**", "tsconfig.json", "package.json"],
       "outputs": []
+    },
+
+    "test": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**", "test/**", "package.json"],
+      "outputs": ["coverage/**"]
     }
   }
 }
