@@ -5,7 +5,8 @@
     "packages/config/tsconfig/*.json",
     "packages/config/eslint/index.mjs",
     "packages/config/prettier/index.cjs",
-    ".editorconfig"
+    ".editorconfig",
+    "pnpm-lock.yaml"
   ],
 
   "tasks": {
@@ -28,6 +29,7 @@
     },
 
     "lint": {
+      "dependsOn": ["^build"],
       "inputs": ["src/**", "eslint.config.mjs", "package.json"],
       "outputs": []
     },
