@@ -1,6 +1,7 @@
 {
   "extends": "../../packages/config/tsconfig/nest.json",
   "compilerOptions": {
+    "composite": true,
     "outDir": "./dist",
     "paths": {
       "@/*": ["./src/*"]
