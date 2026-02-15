@@ -9,6 +9,7 @@
     "typecheck": "turbo run typecheck",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
+    "check:cycles": "madge --circular --extensions ts apps packages",
     "prepare": "husky"
   },
   "lint-staged": {
@@ -33,11 +34,13 @@
     "@next/eslint-plugin-next": "^16.1.6",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
     "husky": "^9.0.0",
     "lint-staged": "^16.2.7",
+    "madge": "^8.0.0",
     "prettier": "^3.8.1",
     "turbo": "^2.8.5",
-    "typescript-eslint": "^8.55.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.55.0"
   }
 }

@@ -1,3 +1,4 @@
+import importPlugin from "eslint-plugin-import";
 import { defineConfig } from "eslint/config";
 import js from "@eslint/js";
 import tseslint from "typescript-eslint";
@@ -8,6 +9,7 @@ export const baseConfig = [
     ignores: ["dist/**", ".next/**", "node_modules/**", "**/eslint.config.*"],
   },
   js.configs.recommended,
+  importPlugin.flatConfigs.recommended,
   prettier,
 ];
 
@@ -33,6 +35,8 @@ export const tsStrictConfig = defineConfig([
         { argsIgnorePattern: "^_" },
       ],
 
+      "import/no-unresolved": "off",
+
       // Style rules
       quotes: ["error", "double"],
       semi: ["error", "always"],
@@ -52,6 +56,27 @@ export const tsStrictConfig = defineConfig([
         "warn",
         {
           allow: ["warn", "error"],
+        },
+      ],
+
+      // Import rules
+      "import/no-restricted-paths": [
+        "error",
+        {
+          zones: [
+            {
+              target: "./apps/api",
+              from: "./apps/web",
+            },
+            {
+              target: "./apps/web",
+              from: "./apps/api",
+            },
+            {
+              target: "./packages",
+              from: "./apps",
+            },
+          ],
         },
       ],
     },
