@@ -1,5 +1,5 @@
 {
-  "name": "ep",
+  "name": "@best-mono/root",
   "private": true,
   "scripts": {
     "dev": "turbo run dev --parallel",
