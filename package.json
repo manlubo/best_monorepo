@@ -1,11 +1,6 @@
 {
   "name": "@best-mono/root",
   "private": true,
-  "pnpm": {
-    "overrides": {
-      "@types/node": "^22.0.0"
-    }
-  },
   "scripts": {
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",

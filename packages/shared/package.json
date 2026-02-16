@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@best-mono/config": "workspace:*",
-    "@types/node": "^22"
+    "@types/node": "catalog:"
   },
   "dependencies": {
     "zod": "^4.3.6"

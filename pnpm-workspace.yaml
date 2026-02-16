@@ -2,7 +2,10 @@ packages:
   - apps/*
   - packages/*
 
+catalog:
+  "@types/node": "^22.0.0"
+
 onlyBuiltDependencies:
-  - '@nestjs/core'
+  - "@nestjs/core"
   - sharp
   - unrs-resolver
