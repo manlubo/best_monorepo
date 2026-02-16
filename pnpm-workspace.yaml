@@ -3,9 +3,10 @@ packages:
   - packages/*
 
 catalog:
-  "@types/node": "^22.0.0"
+  '@types/node': ^22.0.0
+  zod: ^4.3.6
 
 onlyBuiltDependencies:
-  - "@nestjs/core"
+  - '@nestjs/core'
   - sharp
   - unrs-resolver
