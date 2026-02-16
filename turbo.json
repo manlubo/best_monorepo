@@ -1,11 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
 
-  "globalDependencies": [
-    "packages/config/**",
-    ".editorconfig",
-    "pnpm-lock.yaml"
-  ],
+  "globalDependencies": ["packages/config/tsconfig/**", "pnpm-lock.yaml"],
 
   "tasks": {
     "dev": {
