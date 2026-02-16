@@ -5,7 +5,13 @@ import {
   NestInterceptor,
 } from "@nestjs/common";
 import { Observable, map } from "rxjs";
-import type { ApiResponse } from "@best-mono/shared";
+
+import {
+  ApiResponse,
+  SuccessStatusMap,
+  SuccessCode,
+  isApiResponse,
+} from "@best-mono/shared";
 
 @Injectable()
 export class ResponseInterceptor<T> implements NestInterceptor<
@@ -13,15 +19,28 @@ export class ResponseInterceptor<T> implements NestInterceptor<
   ApiResponse<T>
 > {
   intercept(
-    _context: ExecutionContext,
+    context: ExecutionContext,
     next: CallHandler<T>,
   ): Observable<ApiResponse<T>> {
+    const http = context.switchToHttp();
+    const response = http.getResponse();
+
     return next.handle().pipe(
-      map((data) => ({
-        success: true,
-        code: "OK",
-        data,
-      })),
+      map((data) => {
+        if (isApiResponse<T>(data)) {
+          return data;
+        }
+
+        const status = response.statusCode;
+
+        const code = SuccessStatusMap[status] ?? SuccessCode.OK;
+
+        return {
+          success: true,
+          code,
+          data,
+        };
+      }),
     );
   }
 }

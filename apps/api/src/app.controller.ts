@@ -1,5 +1,6 @@
-import { Controller, Get, NotFoundException } from "@nestjs/common";
+import { Controller, Get } from "@nestjs/common";
 import type { HealthResponse } from "@best-mono/shared";
+import { AppException, ErrorCode } from "@best-mono/shared";
 
 @Controller()
 export class AppController {
@@ -13,6 +14,6 @@ export class AppController {
 
   @Get("error")
   error() {
-    throw new NotFoundException("User not found");
+    throw new AppException(ErrorCode.BAD_REQUEST, "잘못된 요청입니다.");
   }
 }
