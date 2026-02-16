@@ -96,6 +96,9 @@ importers:
       '@types/jest':
         specifier: ^29.5.14
         version: 29.5.14
+      '@types/node':
+        specifier: ^22.0.0
+        version: 22.19.11
       '@types/supertest':
         specifier: ^6.0.2
         version: 6.0.3
@@ -145,6 +148,9 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4
         version: 4.1.18
+      '@types/node':
+        specifier: ^22.0.0
+        version: 22.19.11
       '@types/react':
         specifier: ^19
         version: 19.2.14
@@ -165,6 +171,9 @@ importers:
       '@best-mono/config':
         specifier: workspace:*
         version: link:../config
+      '@types/node':
+        specifier: ^22.0.0
+        version: 22.19.11
 
 packages:
 

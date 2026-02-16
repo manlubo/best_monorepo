@@ -1,10 +1,12 @@
 {
   "extends": "../../packages/config/tsconfig/next.json",
   "compilerOptions": {
+    "composite": true,
     "paths": {
       "@/*": ["./src/*"]
     }
   },
+  "references": [{ "path": "../../packages/shared" }],
   "include": [
     "next-env.d.ts",
     "**/*.ts",

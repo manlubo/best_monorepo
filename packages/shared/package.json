@@ -21,6 +21,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@best-mono/config": "workspace:*"
+    "@best-mono/config": "workspace:*",
+    "@types/node": "^22"
   }
 }

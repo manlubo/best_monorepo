@@ -10,7 +10,7 @@
     "declaration": true,
     "declarationMap": true,
 
-    "composite": false
+    "composite": true
   },
   "include": ["src/**/*"]
 }
