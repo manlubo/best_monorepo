@@ -15,10 +15,10 @@
     }
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
-    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
-    "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "build:types": "tsc -p tsconfig.json",
+    "build": "pnpm run build:types && tsup src/index.ts --format esm,cjs",
+    "dev": "tsup src/index.ts --format esm,cjs --watch",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@best-mono/config": "workspace:*",

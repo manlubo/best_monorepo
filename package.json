@@ -11,7 +11,7 @@
     "build": "turbo run build",
     "build:ts": "tsc -b",
     "lint": "pnpm exec turbo run lint",
-    "typecheck": "turbo run typecheck",
+    "typecheck": "tsc -b",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "check:cycles": "madge --circular --extensions ts apps packages",
