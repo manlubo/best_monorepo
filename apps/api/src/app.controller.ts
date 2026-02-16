@@ -1,17 +1,18 @@
-import { Controller, Get } from "@nestjs/common";
-import type { ApiResponse, HealthResponse } from "@best-mono/shared";
+import { Controller, Get, NotFoundException } from "@nestjs/common";
+import type { HealthResponse } from "@best-mono/shared";
 
 @Controller()
 export class AppController {
   @Get("health")
-  health(): ApiResponse<HealthResponse> {
+  health(): HealthResponse {
     return {
-      success: true,
-      code: "OK",
-      data: {
-        status: "ok",
-        timestamp: new Date().toISOString(),
-      },
+      status: "ok",
+      timestamp: new Date().toISOString(),
     };
+  }
+
+  @Get("error")
+  error() {
+    throw new NotFoundException("User not found");
   }
 }
