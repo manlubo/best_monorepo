@@ -15,8 +15,7 @@
     }
   },
   "scripts": {
-    "build:types": "tsc -p tsconfig.json",
-    "build": "pnpm run build:types && tsup src/index.ts --format esm,cjs",
+    "build": "tsup src/index.ts --format esm,cjs --dts --tsconfig tsconfig.build.json",
     "dev": "tsup src/index.ts --format esm,cjs --watch",
     "lint": "eslint ."
   },
