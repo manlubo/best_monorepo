@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
-    "build:ts": "tsc -b tsconfig.build.json",
+    "build:ts": "tsc -b",
     "lint": "pnpm exec turbo run lint",
     "typecheck": "turbo run typecheck",
     "format": "prettier . --write",
