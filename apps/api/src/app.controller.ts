@@ -1,5 +1,5 @@
 import { Controller, Get } from "@nestjs/common";
-import { HealthResponse } from "@best-mono/shared";
+import type { HealthResponse } from "@best-mono/shared";
 
 @Controller()
 export class AppController {

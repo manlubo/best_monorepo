@@ -29,7 +29,7 @@
     },
 
     "lint": {
-      "dependsOn": ["^build"],
+      "dependsOn": [],
       "inputs": ["src/**", "eslint.config.mjs", "package.json"],
       "outputs": []
     },
