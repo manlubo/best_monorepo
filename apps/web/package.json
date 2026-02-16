@@ -18,7 +18,6 @@
   "devDependencies": {
     "@best-mono/config": "workspace:*",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint-config-next": "16.1.6",

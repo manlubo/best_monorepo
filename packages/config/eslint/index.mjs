@@ -3,6 +3,11 @@ import { defineConfig } from "eslint/config";
 import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import prettier from "eslint-config-prettier";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const monoRoot = path.resolve(__dirname, "../../../");
 
 export const baseConfig = [
   {
@@ -13,21 +18,12 @@ export const baseConfig = [
   prettier,
 ];
 
-export const tsConfig = defineConfig([
-  ...baseConfig,
-  {
-    files: ["**/*.ts", "**/*.tsx"],
-    extends: [...tseslint.configs.recommended],
-  },
-]);
-
 export const tsStrictConfig = defineConfig([
   ...baseConfig,
   {
     files: ["**/*.ts", "**/*.tsx"],
     extends: [...tseslint.configs.recommended],
     rules: {
-      // Type rules
       "@typescript-eslint/no-floating-promises": "error",
       "@typescript-eslint/consistent-type-imports": "error",
       "@typescript-eslint/no-unused-vars": [
@@ -37,7 +33,6 @@ export const tsStrictConfig = defineConfig([
 
       "import/no-unresolved": "off",
 
-      // Style rules
       quotes: ["error", "double"],
       semi: ["error", "always"],
       "space-infix-ops": "error",
@@ -51,7 +46,6 @@ export const tsStrictConfig = defineConfig([
         },
       ],
 
-      // Console control
       "no-console": [
         "warn",
         {
@@ -59,22 +53,21 @@ export const tsStrictConfig = defineConfig([
         },
       ],
 
-      // Import rules
       "import/no-restricted-paths": [
         "error",
         {
           zones: [
             {
-              target: "./apps/api",
-              from: "./apps/web",
+              target: path.join(monoRoot, "apps/api"),
+              from: path.join(monoRoot, "apps/web"),
             },
             {
-              target: "./apps/web",
-              from: "./apps/api",
+              target: path.join(monoRoot, "apps/web"),
+              from: path.join(monoRoot, "apps/api"),
             },
             {
-              target: "./packages",
-              from: "./apps",
+              target: path.join(monoRoot, "packages"),
+              from: path.join(monoRoot, "apps"),
             },
           ],
         },

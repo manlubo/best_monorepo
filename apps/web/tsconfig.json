@@ -5,7 +5,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "references": [{ "path": "../../packages/shared" }],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
