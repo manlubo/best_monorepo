@@ -5,12 +5,7 @@ import {
   HttpException,
 } from "@nestjs/common";
 
-import {
-  ApiResponse,
-  AppException,
-  getHttpStatus,
-  ErrorCode,
-} from "@best-mono/shared";
+import { ApiResponse, AppException, ErrorCode } from "@best-mono/shared";
 
 @Catch()
 export class GlobalExceptionFilter implements ExceptionFilter {
@@ -19,15 +14,13 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     const response = ctx.getResponse();
 
     if (exception instanceof AppException) {
-      const status = getHttpStatus(exception.code);
-
       const body: ApiResponse<null> = {
         success: false,
         code: exception.code,
         message: exception.message,
       };
 
-      return response.status(status).json(body);
+      return response.status(exception.status).json(body);
     }
 
     if (exception instanceof HttpException) {
