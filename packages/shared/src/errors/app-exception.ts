@@ -14,3 +14,13 @@ export class AppException extends Error {
     return ErrorStatusMap[this.code];
   }
 }
+
+export function isAppException(e: unknown): e is AppException {
+  return (
+    typeof e === "object" &&
+    e !== null &&
+    "code" in e &&
+    "status" in e &&
+    (e as { name?: string }).name === "AppException"
+  );
+}

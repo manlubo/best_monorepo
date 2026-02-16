@@ -7,9 +7,9 @@ import {
 
 import {
   ApiResponse,
-  AppException,
   ErrorCode,
   StatusToErrorCode,
+  isAppException,
 } from "@best-mono/shared";
 
 @Catch()
@@ -18,7 +18,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
 
-    if (exception instanceof AppException) {
+    if (isAppException(exception)) {
       const body: ApiResponse<null> = {
         success: false,
         code: exception.code,
