@@ -167,6 +167,10 @@ importers:
   packages/config: {}
 
   packages/shared:
+    dependencies:
+      zod:
+        specifier: ^4.3.6
+        version: 4.3.6
     devDependencies:
       '@best-mono/config':
         specifier: workspace:*

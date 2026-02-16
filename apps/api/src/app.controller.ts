@@ -1,13 +1,17 @@
 import { Controller, Get } from "@nestjs/common";
-import type { HealthResponse } from "@best-mono/shared";
+import type { ApiResponse, HealthResponse } from "@best-mono/shared";
 
 @Controller()
 export class AppController {
   @Get("health")
-  health(): HealthResponse {
+  health(): ApiResponse<HealthResponse> {
     return {
-      status: "ok",
-      timestamp: new Date().toISOString(),
+      success: true,
+      code: "OK",
+      data: {
+        status: "ok",
+        timestamp: new Date().toISOString(),
+      },
     };
   }
 }

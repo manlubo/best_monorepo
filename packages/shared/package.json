@@ -19,5 +19,8 @@
   "devDependencies": {
     "@best-mono/config": "workspace:*",
     "@types/node": "^22"
+  },
+  "dependencies": {
+    "zod": "^4.3.6"
   }
 }
