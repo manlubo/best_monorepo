@@ -19,7 +19,7 @@
     },
 
     "build": {
-      "dependsOn": ["^build", "typecheck"],
+      "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
 
