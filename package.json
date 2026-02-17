@@ -9,7 +9,13 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "check:cycles": "madge --circular --extensions ts apps packages",
-    "prepare": "husky"
+    "prepare": "husky",
+    "api:i": "pnpm add --filter @best-mono/api",
+    "api:r": "pnpm remove --filter @best-mono/api",
+    "web:i": "pnpm add --filter @best-mono/web",
+    "web:r": "pnpm remove --filter @best-mono/web",
+    "shared:i": "pnpm add --filter @best-mono/shared",
+    "shared:r": "pnpm remove --filter @best-mono/shared"
   },
   "lint-staged": {
     "apps/api/**/*.{ts,tsx,js}": [
